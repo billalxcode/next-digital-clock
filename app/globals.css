@@ -2,32 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: url("/bg.svg");
+  background-size: cover;
+
+  color: white;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+  border-radius: 15px;
+
+  backdrop-filter: blur(10px);
+
+  background: rgb(50, 104, 184);
+  background: linear-gradient(300deg, rgba(50, 104, 184, 0.8) 0%, rgba(0, 18, 32, 0.8) 100%);
+  
+  cursor: pointer;
+}
+
+.card:hover {
+  transform:translateY(-3px);
+
+  transition: all .3s ease-in-out;
+}
+
+.clock {
+  font-size: 50px;
 }
